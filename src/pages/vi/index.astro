@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { Image } from 'astro:assets';
+import benImg from '../../assets/ben welcome.jpeg';
+---
+
+<Layout title="Bến Garden Cafe | Trang chủ">
+	<Navbar activePage="home" lang="vi" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Chào mừng đến với Bến Garden</h1>
+		</header>
+
+		<section class="story-section">
+			<div class="text-block">
+				<h2>Câu chuyện của chúng tôi</h2>
+				<p>
+					Được thành lập với mong muốn tạo ra một không gian yên bình cho cộng đồng địa phương và du khách, quán cà phê của chúng tôi mang đến trải nghiệm cà phê thủ công, sự hiếu khách ấm áp và cam kết đóng góp cho xã hội.
+				</p>
+				<p>
+					Dù bạn ghé thăm để thưởng thức ly cà phê buổi sáng, tìm hiểu về các chương trình cộng đồng, hay thư giãn trong không gian sân vườn, chúng tôi luôn hân hạnh được đón tiếp bạn.
+				</p>
+			</div>
+			
+			<Image 
+				src={benImg} 
+				alt="Bến Garden Cafe" 
+				width={500} 
+				height={350} 
+				class="story-image"
+			/>
+		</section>
+	</main>
+	<Footer lang="vi" />
+</Layout>
+
+<style>
+	.content-container {
+		max-width: 900px;
+		margin: 2rem auto;
+		padding: 0 1rem;
+		line-height: 1.6;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.story-section {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		align-items: center;
+	}
+	.story-image {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		object-fit: cover;
+	}
+	@media (max-width: 600px) {
+		.story-section {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

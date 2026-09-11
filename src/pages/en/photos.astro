@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Photos | Ben Garden Cafe">
+	<Navbar activePage="photos" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Gallery</h1>
+			<p>A glimpse into our space, coffee, and daily life in Vietnam.</p>
+		</header>
+
+		<section class="gallery-grid">
+			<div class="gallery-item">📷 Garden Seating Area</div>
+			<div class="gallery-item">📷 Freshly Brewed Coffee</div>
+			<div class="gallery-item">📷 Community Workshop</div>
+			<div class="gallery-item">📷 Cafe Exterior & Entrance</div>
+			<div class="gallery-item">📷 Team & Volunteers</div>
+			<div class="gallery-item">📷 Speciality Drinks Menu</div>
+		</section>
+	</main>
+	<Footer lang="en" />
+</Layout>
+
+<style>
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.5rem 2rem;
+		background-color: #f8f5f0;
+		border-bottom: 1px solid #e2dcd5;
+	}
+	.logo {
+		font-weight: bold;
+		font-size: 1.25rem;
+		color: #2c3e50;
+		text-decoration: none;
+	}
+	.nav-links a {
+		margin-left: 1.5rem;
+		text-decoration: none;
+		color: #555;
+	}
+	.nav-links a.active {
+		font-weight: bold;
+		color: #2c3e50;
+	}
+	.content-container {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		font-family: sans-serif;
+		color: #333;
+		line-height: 1.6;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.gallery-item {
+		background-color: #f0f0f0;
+		border: 2px dashed #ccc;
+		border-radius: 8px;
+		height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #666;
+		font-size: 0.95rem;
+	}
+</style>

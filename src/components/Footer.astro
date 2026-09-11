@@ -1,0 +1,138 @@
+---
+const { lang = "en" } = Astro.props;
+
+const addressText = "Cầu Giăng, Túy Loan, Hòa Vang, Đà Nẵng, Vietnam";
+const googleMapsUrl = "https://share.google/HxeYt0gO3Jz7Z0I7a";
+
+// Official Google Maps Embed URL for Bến Garden
+const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.286973437735!2d108.1411457!3d15.9985699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421d16e24691ed%3A0x8c79a7cf6832e5bb!2zQuG6v24gR2FyZGVu!5e0!3m2!1sen!2suk!4v1789137675516!5m2!1sen!2suk";
+---
+
+<footer class="footer">
+	<div class="footer-container">
+		<!-- Contact Info & Hyperlink -->
+		<div class="footer-section">
+			<h4>{lang === 'en' ? 'Contact Us' : 'Liên hệ'}</h4>
+			<p>📧 Email: <a href="mailto:info@bengardencafe.com">info@bengardencafe.com</a></p>
+			<p>📞 Phone: <a href="tel:+84123456789">+84 123 456 789</a></p>
+			<p>
+				📍 {lang === 'en' ? 'Location:' : 'Địa chỉ:'}<br />
+				<a 
+					href={googleMapsUrl} 
+					target="_blank" 
+					rel="noopener noreferrer"
+					class="location-link"
+				>
+					{addressText} ↗
+				</a>
+			</p>
+		</div>
+
+		<!-- Social Links -->
+		<div class="footer-section">
+			<h4>{lang === 'en' ? 'Follow Us' : 'Theo dõi chúng tôi'}</h4>
+			<div class="social-links">
+				<a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+				<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+				<a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">Tripadvisor</a>
+			</div>
+		</div>
+
+		<!-- Embedded Map -->
+		<div class="footer-section map-section">
+			<h4>{lang === 'en' ? 'Our Location' : 'Bản đồ'}</h4>
+			<div class="map-wrapper">
+				<iframe
+					src={googleMapsEmbedUrl}
+					width="100%"
+					height="160"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					title="Bến Garden Cafe Location Map"
+				></iframe>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<p>© {new Date().getFullYear()} Bến Garden Cafe. {lang === 'en' ? 'All rights reserved.' : 'Bản quyền đã được bảo hộ.'}</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background-color: #1e293b;
+		color: #f1f5f9;
+		padding: 3rem 1rem 1.5rem 1rem;
+		margin-top: 4rem;
+	}
+
+	.footer-container {
+		max-width: 900px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 2rem;
+	}
+
+	.footer-section h4 {
+		margin-bottom: 1rem;
+		font-size: 1.2rem;
+		color: #ffffff;
+	}
+
+	.footer-section p {
+		margin-bottom: 0.5rem;
+		font-size: 0.95rem;
+		color: #cbd5e1;
+		text-align: left;
+	}
+
+	.footer-section a {
+		color: #38bdf8;
+		text-decoration: none;
+	}
+
+	.footer-section a:hover {
+		text-decoration: underline;
+	}
+
+	.location-link {
+		font-weight: 500;
+		display: inline-block;
+		margin-top: 0.2rem;
+		line-height: 1.4;
+	}
+
+	.social-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.map-wrapper {
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid #334155;
+	}
+
+	.map-wrapper iframe {
+		display: block;
+	}
+
+	.footer-bottom {
+		max-width: 900px;
+		margin: 2rem auto 0 auto;
+		padding-top: 1.5rem;
+		border-top: 1px solid #334155;
+		text-align: center;
+		font-size: 0.85rem;
+		color: #94a3b8;
+	}
+
+	.footer-bottom p {
+		text-align: center;
+	}
+</style>

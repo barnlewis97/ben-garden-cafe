@@ -1,0 +1,50 @@
+---
+const { title = "Bến Garden Cafe" } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	/* 1. Define global color variables and site-wide defaults */
+	:root {
+		--bg-color: #f8f5f0;        /* Warm cream background */
+		--text-color: #024d03;      /* Soft dark charcoal for primary text */
+		--heading-color: #006f18;   /* Deep forest green for main titles */
+		--accent-color: #05a517;    /* Accent green matching your navbar */
+		--font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+	}
+
+	/* 2. Apply background and base text styling to the whole page */
+	html, body {
+		margin: 0;
+		padding: 0;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+		font-family: var(--font-main);
+		line-height: 1.6;
+	}
+
+	/* 3. Global Heading Colors & Fonts */
+	h1, h2, h3, h4 {
+		color: var(--heading-color);
+		font-family: var(--font-main);
+		margin-top: 0;
+	}
+
+	/* 4. Global Link Colors */
+	a {
+		color: var(--accent-color);
+	}
+</style>

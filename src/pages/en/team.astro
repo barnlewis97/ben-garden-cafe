@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { Image } from 'astro:assets';
+// Import your image from the assets folder
+import hangImg from '../../assets/team page/hang.jpeg';
+import huyImg from '../../assets/team page/huy.jpeg';
+import volImg from '../../assets/team page/volunteers.jpeg';
+import logoImg from '../../assets/ben logo.jpeg';
+
+
+// You can easily add or edit team members in this array:
+const teamMembers = [
+	{ name: "Hang", role: "General Manager and Wonderful Woman", bio: "Passionate about specialty Vietnamese coffee brewing techniques.", image:hangImg},
+	{ name: "Huy", role: "Incredible Chef and Master Craftsman", bio: "Oversees daily operations and community outreach events.", image:huyImg},
+	{ name: "Volunteers", role: "Community Support", bio: "Invaluable international and local volunteers helping drive our mission forward.", image:volImg}
+];
+---
+
+<Layout title="Meet the Team | Ben Garden Cafe">
+    <Navbar activePage="team" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Meet Our Team</h1>
+			<p>The friendly faces behind the coffee, garden, and community.</p>
+		</header>
+
+		<section class="team-grid">
+            {teamMembers.map(member => (
+                <div class="team-card">
+                    <Image 
+                        src={member.image} 
+                        alt={member.name} 
+                        width={200} 
+                        height={200} 
+                        class="team-avatar"
+                    />
+                    <h3>{member.name}</h3>
+                    <span class="role">{member.role}</span>
+                    <p>{member.bio}</p>
+                </div>
+            ))}
+        </section>
+	</main>
+	<Footer lang="en" />
+</Layout>
+
+<style>
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .logo-img {
+        height: 120px;
+        width: auto;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.5rem 2rem;
+		background-color: #05a517;
+		border-bottom: 1px solid rgb(29, 246, 9);
+	}
+	.logo {
+		font-weight: bold;
+		font-size: 1.25rem;
+		color: #06f83a;
+		text-decoration: none;
+	}
+	.nav-links a {
+		margin-left: 1.5rem;
+		text-decoration: none;
+		color: #e6ccad;
+	}
+	.nav-links a.active {
+		font-weight: bold;
+		color: #2c3e50;
+	}
+	.content-container {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		font-family: sans-serif;
+		color: #333;
+		line-height: 1.6;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 2rem;
+	}
+	.team-card {
+		border: 1px solid #ead6be;
+		border-radius: 8px;
+		padding: 1.5rem;
+		text-align: center;
+		background: #e3e2bf;
+	}
+	.team-avatar {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 auto 1rem auto;
+	display: block;
+    }
+	.role {
+		display: inline-block;
+		color: #888;
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+</style>

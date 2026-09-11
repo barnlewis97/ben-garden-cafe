@@ -1,0 +1,194 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const menuData = [
+	{
+		category: "Cà Phê",
+		subtitle: "Mỗi hạt Cà Phê là một câu chuyện về Đam Mê...",
+		items: [
+			{ name: "Cafe Đen phin/máy", price: "15k" },
+			{ name: "Cafe Sữa phin/máy", price: "16k" },
+			{ name: "Cafe Muối", price: "25k" },
+			{ name: "Cafe Dừa", price: "28k" },
+			{ name: "Cafe Hạnh Nhân", price: "28k" },
+			{ name: "Cafe Đen/Sữa Sài Gòn", price: "22k/25k" },
+			{ name: "Bạc Xỉu đá", price: "26k" },
+			{ name: "Bạc Xỉu Muối", price: "28k" },
+			{ name: "Cacao đá/nóng", price: "25k" }
+		]
+	},
+	{
+		category: "Latte",
+		items: [
+			{ name: "Matcha Latte", price: "26k" },
+			{ name: "Cacao Latte", price: "26k" },
+			{ name: "Matcha / Cacao Kem muối", price: "28k" }
+		]
+	},
+	{
+		category: "Trà ÔLong Tươi (dùng trái cây thật)",
+		items: [
+			{ name: "ÔLong Đào Cam sả", price: "30k" },
+			{ name: "ÔLong Xoài Chanh leo", price: "30k" },
+			{ name: "ÔLong Nhiệt đới", price: "30k" },
+			{ name: "ÔLong Chanh Xí muội", price: "30k" },
+			{ name: "Trà Cam Quế nóng", price: "30k" },
+			{ name: "Trà Lipton nóng", price: "25k" },
+			{ name: "Trà Gừng xí muội", price: "20k" }
+		]
+	},
+	{
+		category: "Thức Uống Sáng Tạo",
+		items: [
+			{ name: "Đá Me lắc", price: "26k" },
+			{ name: "Milo dằm Thạch", price: "30k" },
+			{ name: "Sữa tươi trân châu đường đen", price: "26k" },
+			{ name: "Trà sữa Khoai Môn", price: "22k" }
+		]
+	},
+	{
+		category: "Đá Xay",
+		items: [
+			{ name: "Socola đá xay", price: "30k" },
+			{ name: "Matcha đá xay", price: "30k" },
+			{ name: "Bánh Oreo đá xay", price: "30k" }
+		]
+	},
+	{
+		category: "Sữa Chua",
+		items: [
+			{ name: "Sữa chua Ngũ cốc", price: "30k" },
+			{ name: "Sữa chua Nếp Cẩm", price: "30k" },
+			{ name: "Sữa chua Xoài", price: "26k" },
+			{ name: "Sữa chua Dâu", price: "26k" },
+			{ name: "Sữa chua Việt Quất", price: "26k" },
+			{ name: "Sữa chua trắn/đá", price: "22k" }
+		]
+	},
+	{
+		category: "Nước Ép",
+		items: [
+			{ name: "Nước ép Cam", price: "26k" },
+			{ name: "Nước ép Ổi", price: "26k" },
+			{ name: "Nước ép Dứa (Thơm)", price: "26k" },
+			{ name: "Nước ép Cà Rốt", price: "26k" },
+			{ name: "Chanh xí muội (đá/nóng)", price: "25k" }
+		]
+	},
+	{
+		category: "Nhâm Nhi",
+		items: [
+			{ name: "Hạt Ngũ Cốc", price: "10k" },
+			{ name: "Hạt Dưa", price: "15k" },
+			{ name: "Hướng Dương Dừa", price: "15k" }
+		]
+	}
+];
+---
+
+<Layout title="Thực đơn | Bến Garden Cafe">
+	<Navbar activePage="menu" lang="vi" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Thực Đơn</h1>
+			<p class="tagline">"...Mỗi hạt Cà Phê là một câu chuyện về Đam Mê..."</p>
+			<p>Thưởng thức các loại cà phê thủ công, trà trái cây tươi và món ăn vặt nhẹ nhàng.</p>
+		</header>
+
+		<div class="menu-grid">
+			{menuData.map(section => (
+				<section class="menu-card">
+					<h2>{section.category}</h2>
+					{section.subtitle && <p class="subtitle">{section.subtitle}</p>}
+					<ul class="item-list">
+						{section.items.map(item => (
+							<li class="menu-item">
+								<span class="item-name">{item.name}</span>
+								<span class="dots"></span>
+								<span class="item-price">{item.price}</span>
+							</li>
+						))}
+					</ul>
+				</section>
+			))}
+		</div>
+	</main>
+
+	<Footer lang="vi" />
+</Layout>
+
+<style>
+	.tagline {
+		font-style: italic;
+		color: #05a517;
+		font-size: 1.05rem;
+		margin-bottom: 0.5rem;
+		text-align: center !important;
+	}
+	.content-container {
+		max-width: 1000px;
+		margin: 2rem auto;
+		padding: 0 1rem;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 2.5rem;
+	}
+	.hero-small h1 {
+		font-size: 2.2rem;
+		color: #05a517;
+		margin-bottom: 0.5rem;
+	}
+	.menu-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+	.menu-card {
+		background: #ffffff;
+		border: 1px solid #e2e8f0;
+		border-radius: 10px;
+		padding: 1.5rem;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+	}
+	.menu-card h2 {
+		font-size: 1.3rem;
+		color: #1e293b;
+		border-bottom: 2px solid #05a517;
+		padding-bottom: 0.4rem;
+		margin-bottom: 0.8rem;
+	}
+	.subtitle {
+		font-style: italic;
+		font-size: 0.85rem;
+		color: #64748b;
+		margin-bottom: 1rem;
+	}
+	.item-list {
+		list-style: none;
+		padding: 0;
+	}
+	.menu-item {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		margin-bottom: 0.6rem;
+		font-size: 0.95rem;
+	}
+	.item-name {
+		font-weight: 500;
+		color: #334155;
+	}
+	.dots {
+		flex: 1;
+		border-bottom: 1px dotted #cbd5e1;
+		margin: 0 0.5rem;
+	}
+	.item-price {
+		font-weight: 700;
+		color: #05a517;
+	}
+</style>

@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Hình ảnh | Bến Garden Cafe">
+	<Navbar activePage="photos" lang="vi" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Thư viện ảnh</h1>
+			<p>Góc nhìn về không gian, cà phê và cuộc sống thường nhật tại Bến Garden.</p>
+		</header>
+
+		<section class="gallery-grid">
+			<div class="gallery-item">📷 Góc sân vườn</div>
+			<div class="gallery-item">📷 Cà phê pha tươi</div>
+			<div class="gallery-item">📷 Buổi xưởng cộng đồng</div>
+			<div class="gallery-item">📷 Mặt tiền & Lối vào</div>
+			<div class="gallery-item">📷 Đội ngũ & Tình nguyện viên</div>
+			<div class="gallery-item">📷 Menu đồ uống đặc sản</div>
+		</section>
+	</main>
+	<Footer lang="vi" />
+</Layout>
+
+<style>
+	.content-container {
+		max-width: 900px;
+		margin: 2rem auto;
+		padding: 0 1rem;
+		line-height: 1.6;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.gallery-item {
+		background-color: #f0f0f0;
+		border: 2px dashed #ccc;
+		border-radius: 8px;
+		height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #666;
+		font-size: 0.95rem;
+	}
+</style>

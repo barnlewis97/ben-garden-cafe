@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Our Mission | Ben Garden Cafe">
+    <Navbar activePage="mission" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Our Mission & Impact</h1>
+			<p>Creating sustainable opportunity and supporting local initiatives in Vietnam.</p>
+		</header>
+
+		<section class="mission-grid">
+			<div class="card">
+				<div class="icon">🌱</div>
+				<h3>Ethical Sourcing</h3>
+				<p>We work directly with local Vietnamese coffee farmers to source high-quality beans, ensuring fair compensation and sustainable farming methods.</p>
+			</div>
+
+			<div class="card">
+				<div class="icon">🤝</div>
+				<h3>Community Support</h3>
+				<p>Our space acts as a hub for local social initiatives, offering educational workshops, volunteer programs, and community gatherings.</p>
+			</div>
+
+			<div class="card">
+				<div class="icon">🎓</div>
+				<h3>Skill Development</h3>
+				<p>We provide hands-on training for young adults and volunteers in hospitality, barista skills, and English language exchange.</p>
+			</div>
+		</section>
+	</main>
+	<Footer lang="en" />
+</Layout>
+
+<style>
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.5rem 2rem;
+		background-color: #f8f5f0;
+		border-bottom: 1px solid #e2dcd5;
+	}
+	.logo {
+		font-weight: bold;
+		font-size: 1.25rem;
+		color: #2c3e50;
+		text-decoration: none;
+	}
+	.nav-links a {
+		margin-left: 1.5rem;
+		text-decoration: none;
+		color: #555;
+	}
+	.nav-links a.active {
+		font-weight: bold;
+		color: #2c3e50;
+	}
+	.content-container {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		font-family: sans-serif;
+		color: #333;
+		line-height: 1.6;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.mission-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+	.card {
+		background: #fafafa;
+		border: 1px solid #eee;
+		border-radius: 8px;
+		padding: 1.5rem;
+		text-align: center;
+	}
+	.icon {
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+</style>

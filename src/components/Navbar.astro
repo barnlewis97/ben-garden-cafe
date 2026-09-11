@@ -1,0 +1,156 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/ben logo.jpeg';
+import ukFlag from '../assets/flag_uk.svg';
+import vnFlag from '../assets/flag_vn.webp';
+
+const { activePage = "home", lang = "en" } = Astro.props;
+---
+
+<nav class="navbar">
+	<div class="brand-container">
+		<a href={`/${lang}/`} class="logo-link">
+			<Image 
+				src={logoImg} 
+				alt="Bến Garden Cafe Logo" 
+				width={100} 
+				height={100} 
+				class="logo-img" 
+			/>
+		</a>
+		<div class="brand-text">
+			<h1 class="brand-title">Bến Garden Cafe</h1>
+			<p class="brand-tagline">
+				{lang === 'en' 
+					? 'A place for exceptional coffee, community, and social impact in Vietnam.' 
+					: 'Nơi thưởng thức cà phê đặc sản, kết nối cộng đồng và lan tỏa giá trị tích cực.'}
+			</p>
+		</div>
+	</div>
+
+	<div class="nav-right">
+		<div class="nav-links">
+			<a href={`/${lang}/`} class={activePage === "home" ? "active" : ""}>
+				{lang === 'en' ? 'Home' : 'Trang chủ'}
+			</a>
+			<a href={`/${lang}/menu/`} class={activePage === "menu" ? "active" : ""}>
+				{lang === 'en' ? 'Menu' : 'Thực đơn'}
+			</a>
+			<a href={`/${lang}/mission/`} class={activePage === "mission" ? "active" : ""}>
+				{lang === 'en' ? 'Our Mission' : 'Sứ mệnh'}
+			</a>
+			<a href={`/${lang}/team/`} class={activePage === "team" ? "active" : ""}>
+				{lang === 'en' ? 'Team' : 'Đội ngũ'}
+			</a>
+			<a href={`/${lang}/photos/`} class={activePage === "photos" ? "active" : ""}>
+				{lang === 'en' ? 'Photos' : 'Hình ảnh'}
+			</a>
+		</div>
+
+		<div class="lang-switch">
+            <a href="/en/" class={lang === 'en' ? 'lang-active' : ''} aria-label="English">
+                <Image src={ukFlag} alt="UK Flag" width={20} height={14} class="flag-img" />
+                <span class="lang-text">EN</span>
+            </a>
+            <span class="lang-divider">|</span>
+            <a href="/vi/" class={lang === 'vi' ? 'lang-active' : ''} aria-label="Tiếng Việt">
+                <Image src={vnFlag} alt="Vietnam Flag" width={20} height={14} class="flag-img" />
+                <span class="lang-text">VI</span>
+            </a>
+        </div>
+	</div>
+</nav>
+
+<style>
+	.navbar {
+		display: flex !important;
+		justify-content: space-between !important;
+		align-items: center !important;
+		padding: 1rem 2rem !important;
+		background-color: #05a517 !important;
+		border-bottom: 2px solid #048212 !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
+	}
+
+	.brand-container {
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+	}
+
+	.logo-img {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.brand-title {
+		margin: 0;
+		font-size: 1.6rem;
+		font-weight: 700;
+		color: #ffffff;
+	}
+
+	.brand-tagline {
+		margin: 0.2rem 0 0 0;
+		font-size: 0.85rem;
+		color: #e6ccad;
+	}
+
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	.nav-links a {
+		text-decoration: none;
+		color: #e6ccad;
+		font-weight: 500;
+		font-size: 1.1rem;
+	}
+
+	.nav-links a.active {
+		font-weight: 700;
+		color: #ffffff;
+		text-decoration: underline;
+	}
+
+	.lang-switch {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		background-color: rgba(255, 255, 255, 0.2);
+		padding: 0.35rem 0.8rem;
+		border-radius: 20px;
+	}
+
+	.lang-switch a {
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+		text-decoration: none;
+		color: #e6ccad;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+
+	.lang-switch a.lang-active {
+		color: #ffffff;
+		font-weight: 700;
+	}
+
+	.lang-divider {
+		color: #e6ccad;
+		font-size: 0.8rem;
+		opacity: 0.6;
+	}
+</style>

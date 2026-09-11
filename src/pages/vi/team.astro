@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { Image } from 'astro:assets';
+
+import hangImg from '../../assets/team page/hang.jpeg';
+import huyImg from '../../assets/team page/huy.jpeg';
+import volImg from '../../assets/team page/volunteers.jpeg';
+
+const teamMembers = [
+	{ name: "Hằng", role: "Quản lý chung", bio: "Đam mê các kỹ thuật pha chế cà phê đặc sản Việt Nam.", image: hangImg },
+	{ name: "Huy", role: "Đầu bếp chính", bio: "Phụ trách hoạt động vận hành hàng ngày và các sự kiện cộng đồng.", image: huyImg },
+	{ name: "Tình nguyện viên", role: "Hỗ trợ cộng đồng", bio: "Đội ngũ tình nguyện viên quốc tế và địa phương đầy nhiệt huyết.", image: volImg }
+];
+---
+
+<Layout title="Đội ngũ | Bến Garden Cafe">
+	<Navbar activePage="team" lang="vi" />
+
+	<main class="content-container">
+		<header class="hero-small">
+			<h1>Đội ngũ của chúng tôi</h1>
+			<p>Những gương mặt thân quen đằng sau tách cà phê, khu vườn và không gian cộng đồng.</p>
+		</header>
+
+		<section class="team-grid">
+			{teamMembers.map(member => (
+				<div class="team-card">
+					<Image 
+						src={member.image} 
+						alt={member.name} 
+						width={200} 
+						height={200} 
+						class="team-avatar"
+					/>
+					<h3>{member.name}</h3>
+					<span class="role">{member.role}</span>
+					<p>{member.bio}</p>
+				</div>
+			))}
+		</section>
+	</main>
+	<Footer lang="vi" />
+</Layout>
+
+<style>
+	.content-container {
+		max-width: 900px;
+		margin: 2rem auto;
+		padding: 0 1rem;
+		line-height: 1.6;
+	}
+	.hero-small {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 2rem;
+	}
+	.team-card {
+		border: 1px solid #ead6be;
+		border-radius: 8px;
+		padding: 1.5rem;
+		text-align: center;
+		background: #e3e2bf;
+	}
+	.team-avatar {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin: 0 auto 1rem auto;
+		display: block;
+	}
+	.role {
+		display: inline-block;
+		color: #888;
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+</style>
