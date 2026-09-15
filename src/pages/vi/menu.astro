@@ -2,104 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { menuContent } from '../../data/content';
 
-const menuData = [
-	{
-		category: "Cà Phê",
-		subtitle: "Mỗi hạt Cà Phê là một câu chuyện về Đam Mê...",
-		items: [
-			{ name: "Cafe Đen phin/máy", price: "15k" },
-			{ name: "Cafe Sữa phin/máy", price: "16k" },
-			{ name: "Cafe Muối", price: "25k" },
-			{ name: "Cafe Dừa", price: "28k" },
-			{ name: "Cafe Hạnh Nhân", price: "28k" },
-			{ name: "Cafe Đen/Sữa Sài Gòn", price: "22k/25k" },
-			{ name: "Bạc Xỉu đá", price: "26k" },
-			{ name: "Bạc Xỉu Muối", price: "28k" },
-			{ name: "Cacao đá/nóng", price: "25k" }
-		]
-	},
-	{
-		category: "Latte",
-		items: [
-			{ name: "Matcha Latte", price: "26k" },
-			{ name: "Cacao Latte", price: "26k" },
-			{ name: "Matcha / Cacao Kem muối", price: "28k" }
-		]
-	},
-	{
-		category: "Trà ÔLong Tươi (dùng trái cây thật)",
-		items: [
-			{ name: "ÔLong Đào Cam sả", price: "30k" },
-			{ name: "ÔLong Xoài Chanh leo", price: "30k" },
-			{ name: "ÔLong Nhiệt đới", price: "30k" },
-			{ name: "ÔLong Chanh Xí muội", price: "30k" },
-			{ name: "Trà Cam Quế nóng", price: "30k" },
-			{ name: "Trà Lipton nóng", price: "25k" },
-			{ name: "Trà Gừng xí muội", price: "20k" }
-		]
-	},
-	{
-		category: "Thức Uống Sáng Tạo",
-		items: [
-			{ name: "Đá Me lắc", price: "26k" },
-			{ name: "Milo dằm Thạch", price: "30k" },
-			{ name: "Sữa tươi trân châu đường đen", price: "26k" },
-			{ name: "Trà sữa Khoai Môn", price: "22k" }
-		]
-	},
-	{
-		category: "Đá Xay",
-		items: [
-			{ name: "Socola đá xay", price: "30k" },
-			{ name: "Matcha đá xay", price: "30k" },
-			{ name: "Bánh Oreo đá xay", price: "30k" }
-		]
-	},
-	{
-		category: "Sữa Chua",
-		items: [
-			{ name: "Sữa chua Ngũ cốc", price: "30k" },
-			{ name: "Sữa chua Nếp Cẩm", price: "30k" },
-			{ name: "Sữa chua Xoài", price: "26k" },
-			{ name: "Sữa chua Dâu", price: "26k" },
-			{ name: "Sữa chua Việt Quất", price: "26k" },
-			{ name: "Sữa chua trắn/đá", price: "22k" }
-		]
-	},
-	{
-		category: "Nước Ép",
-		items: [
-			{ name: "Nước ép Cam", price: "26k" },
-			{ name: "Nước ép Ổi", price: "26k" },
-			{ name: "Nước ép Dứa (Thơm)", price: "26k" },
-			{ name: "Nước ép Cà Rốt", price: "26k" },
-			{ name: "Chanh xí muội (đá/nóng)", price: "25k" }
-		]
-	},
-	{
-		category: "Nhâm Nhi",
-		items: [
-			{ name: "Hạt Ngũ Cốc", price: "10k" },
-			{ name: "Hạt Dưa", price: "15k" },
-			{ name: "Hướng Dương Dừa", price: "15k" }
-		]
-	}
-];
+const content = menuContent.vi;
 ---
 
-<Layout title="Thực đơn | Bến Garden Cafe">
+<Layout title={content.title}>
 	<Navbar activePage="menu" lang="vi" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Thực Đơn</h1>
-			<p class="tagline">"...Mỗi hạt Cà Phê là một câu chuyện về Đam Mê..."</p>
-			<p>Thưởng thức các loại cà phê thủ công, trà trái cây tươi và món ăn vặt nhẹ nhàng.</p>
+			<h1>{content.heading}</h1>
+			<p class="tagline">{content.tagline}</p>
+			<p>{content.intro}</p>
 		</header>
 
 		<div class="menu-grid">
-			{menuData.map(section => (
+			{content.sections.map(section => (
 				<section class="menu-card">
 					<h2>{section.category}</h2>
 					{section.subtitle && <p class="subtitle">{section.subtitle}</p>}

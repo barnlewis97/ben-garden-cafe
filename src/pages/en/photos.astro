@@ -2,24 +2,22 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { photosContent } from '../../data/content';
+
+const content = photosContent.en;
 ---
 
-<Layout title="Photos | Ben Garden Cafe">
+<Layout title={content.title}>
 	<Navbar activePage="photos" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Gallery</h1>
-			<p>A glimpse into our space, coffee, and daily life in Vietnam.</p>
+			<h1>{content.heading}</h1>
+			<p>{content.intro}</p>
 		</header>
 
 		<section class="gallery-grid">
-			<div class="gallery-item">📷 Garden Seating Area</div>
-			<div class="gallery-item">📷 Freshly Brewed Coffee</div>
-			<div class="gallery-item">📷 Community Workshop</div>
-			<div class="gallery-item">📷 Cafe Exterior & Entrance</div>
-			<div class="gallery-item">📷 Team & Volunteers</div>
-			<div class="gallery-item">📷 Speciality Drinks Menu</div>
+			{content.items.map(item => <div class="gallery-item">📷 {item}</div>)}
 		</section>
 	</main>
 	<Footer lang="en" />

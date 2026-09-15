@@ -2,35 +2,28 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { missionContent } from '../../data/content';
+
+const content = missionContent.en;
 ---
 
-<Layout title="Our Mission | Ben Garden Cafe">
+<Layout title={content.title}>
     <Navbar activePage="mission" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Our Mission & Impact</h1>
-			<p>Creating sustainable opportunity and supporting local initiatives in Vietnam.</p>
+			<h1>{content.heading}</h1>
+			<p>{content.intro}</p>
 		</header>
 
 		<section class="mission-grid">
-			<div class="card">
-				<div class="icon">🌱</div>
-				<h3>Ethical Sourcing</h3>
-				<p>We work directly with local Vietnamese coffee farmers to source high-quality beans, ensuring fair compensation and sustainable farming methods.</p>
-			</div>
-
-			<div class="card">
-				<div class="icon">🤝</div>
-				<h3>Community Support</h3>
-				<p>Our space acts as a hub for local social initiatives, offering educational workshops, volunteer programs, and community gatherings.</p>
-			</div>
-
-			<div class="card">
-				<div class="icon">🎓</div>
-				<h3>Skill Development</h3>
-				<p>We provide hands-on training for young adults and volunteers in hospitality, barista skills, and English language exchange.</p>
-			</div>
+			{content.cards.map(card => (
+				<div class="card">
+					<div class="icon">{card.icon}</div>
+					<h3>{card.heading}</h3>
+					<p>{card.body}</p>
+				</div>
+			))}
 		</section>
 	</main>
 	<Footer lang="en" />

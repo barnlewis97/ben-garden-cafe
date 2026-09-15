@@ -8,27 +8,22 @@ import hangImg from '../../assets/team page/hang.jpeg';
 import huyImg from '../../assets/team page/huy.jpeg';
 import volImg from '../../assets/team page/volunteers.jpeg';
 import logoImg from '../../assets/ben logo.jpeg';
+import { teamContent } from '../../data/content';
 
-
-// You can easily add or edit team members in this array:
-const teamMembers = [
-	{ name: "Hang", role: "General Manager and Wonderful Woman", bio: "Passionate about specialty Vietnamese coffee brewing techniques.", image:hangImg},
-	{ name: "Huy", role: "Incredible Chef and Master Craftsman", bio: "Oversees daily operations and community outreach events.", image:huyImg},
-	{ name: "Volunteers", role: "Community Support", bio: "Invaluable international and local volunteers helping drive our mission forward.", image:volImg}
-];
+const content = teamContent.en;
 ---
 
-<Layout title="Meet the Team | Ben Garden Cafe">
+<Layout title={content.title}>
     <Navbar activePage="team" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Meet Our Team</h1>
-			<p>The friendly faces behind the coffee, garden, and community.</p>
+			<h1>{content.heading}</h1>
+			<p>{content.intro}</p>
 		</header>
 
 		<section class="team-grid">
-            {teamMembers.map(member => (
+			{content.members.map(member => (
                 <div class="team-card">
                     <Image 
                         src={member.image} 

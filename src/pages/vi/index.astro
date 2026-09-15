@@ -4,30 +4,28 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
 import benImg from '../../assets/ben welcome.jpeg';
+import { homeContent } from '../../data/content';
+
+const content = homeContent.vi;
 ---
 
-<Layout title="Bến Garden Cafe | Trang chủ">
+<Layout title={content.title}>
 	<Navbar activePage="home" lang="vi" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Chào mừng đến với Bến Garden</h1>
+			<h1>{content.heading}</h1>
 		</header>
 
 		<section class="story-section">
 			<div class="text-block">
-				<h2>Câu chuyện của chúng tôi</h2>
-				<p>
-					Được thành lập với mong muốn tạo ra một không gian yên bình cho cộng đồng địa phương và du khách, quán cà phê của chúng tôi mang đến trải nghiệm cà phê thủ công, sự hiếu khách ấm áp và cam kết đóng góp cho xã hội.
-				</p>
-				<p>
-					Dù bạn ghé thăm để thưởng thức ly cà phê buổi sáng, tìm hiểu về các chương trình cộng đồng, hay thư giãn trong không gian sân vườn, chúng tôi luôn hân hạnh được đón tiếp bạn.
-				</p>
+				<h2>{content.storyHeading}</h2>
+				{content.storyParagraphs.map(paragraph => <p>{paragraph}</p>)}
 			</div>
 			
 			<Image 
 				src={benImg} 
-				alt="Bến Garden Cafe" 
+				alt={content.imageAlt}
 				width={500} 
 				height={350} 
 				class="story-image"

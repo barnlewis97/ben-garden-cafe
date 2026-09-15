@@ -2,24 +2,22 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { photosContent } from '../../data/content';
+
+const content = photosContent.vi;
 ---
 
-<Layout title="Hình ảnh | Bến Garden Cafe">
+<Layout title={content.title}>
 	<Navbar activePage="photos" lang="vi" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Thư viện ảnh</h1>
-			<p>Góc nhìn về không gian, cà phê và cuộc sống thường nhật tại Bến Garden.</p>
+			<h1>{content.heading}</h1>
+			<p>{content.intro}</p>
 		</header>
 
 		<section class="gallery-grid">
-			<div class="gallery-item">📷 Góc sân vườn</div>
-			<div class="gallery-item">📷 Cà phê pha tươi</div>
-			<div class="gallery-item">📷 Buổi xưởng cộng đồng</div>
-			<div class="gallery-item">📷 Mặt tiền & Lối vào</div>
-			<div class="gallery-item">📷 Đội ngũ & Tình nguyện viên</div>
-			<div class="gallery-item">📷 Menu đồ uống đặc sản</div>
+			{content.items.map(item => <div class="gallery-item">📷 {item}</div>)}
 		</section>
 	</main>
 	<Footer lang="vi" />

@@ -2,104 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { menuContent } from '../../data/content';
 
-const menuData = [
-	{
-		category: "Coffee (Cà Phê)",
-		subtitle: "Every coffee bean is a story of passion",
-		items: [
-			{ name: "Black Coffee (Filter/Machine)", price: "15k" },
-			{ name: "White Coffee with Condensed Milk (Filter/Machine)", price: "16k" },
-			{ name: "Salted Cream Coffee", price: "25k" },
-			{ name: "Coconut Coffee", price: "28k" },
-			{ name: "Almond Coffee", price: "28k" },
-			{ name: "Saigon Style Coffee (Black / Milk)", price: "22k / 25k" },
-			{ name: "Iced Bạc Xỉu (Extra Milk Coffee)", price: "26k" },
-			{ name: "Salted Bạc Xỉu", price: "28k" },
-			{ name: "Cocoa (Iced / Hot)", price: "25k" }
-		]
-	},
-	{
-		category: "Latte",
-		items: [
-			{ name: "Matcha Latte", price: "26k" },
-			{ name: "Cocoa Latte", price: "26k" },
-			{ name: "Matcha / Cocoa with Salted Cream", price: "28k" }
-		]
-	},
-	{
-		category: "Fresh Oolong Tea (Real Fruit)",
-		items: [
-			{ name: "Peach Orange Lemongrass Oolong", price: "30k" },
-			{ name: "Mango Passionfruit Oolong", price: "30k" },
-			{ name: "Tropical Fruit Oolong", price: "30k" },
-			{ name: "Salted Lime Oolong", price: "30k" },
-			{ name: "Hot Orange Cinnamon Tea", price: "30k" },
-			{ name: "Hot Lipton Tea", price: "25k" },
-			{ name: "Ginger Tea with Preserved Lime", price: "20k" }
-		]
-	},
-	{
-		category: "Creative Drinks",
-		items: [
-			{ name: "Shaken Iced Tamarind", price: "26k" },
-			{ name: "Milo with Jelly", price: "30k" },
-			{ name: "Black Sugar Boba Milk", price: "26k" },
-			{ name: "Taro Milk Tea", price: "22k" }
-		]
-	},
-	{
-		category: "Ice Blended (Đá Xay)",
-		items: [
-			{ name: "Chocolate Ice Blended", price: "30k" },
-			{ name: "Matcha Ice Blended", price: "30k" },
-			{ name: "Oreo Cookie Ice Blended", price: "30k" }
-		]
-	},
-	{
-		category: "Yogurt (Sữa Chua)",
-		items: [
-			{ name: "Granola Yogurt", price: "30k" },
-			{ name: "Sticky Black Rice Yogurt", price: "30k" },
-			{ name: "Mango Yogurt", price: "26k" },
-			{ name: "Strawberry Yogurt", price: "26k" },
-			{ name: "Blueberry Yogurt", price: "26k" },
-			{ name: "Plain Yogurt", price: "22k" }
-		]
-	},
-	{
-		category: "Fresh Juice",
-		items: [
-			{ name: "Orange Juice", price: "26k" },
-			{ name: "Guava Juice", price: "26k" },
-			{ name: "Pineapple Juice", price: "26k" },
-			{ name: "Carrot Juice", price: "26k" },
-			{ name: "Salted Preserved Lime (Iced / Hot)", price: "25k" }
-		]
-	},
-	{
-		category: "Snacks (Nhâm Nhi)",
-		items: [
-			{ name: "Mixed Cereal Seeds", price: "10k" },
-			{ name: "Watermelon Seeds", price: "15k" },
-			{ name: "Coconut Sunflower Seeds", price: "15k" }
-		]
-	}
-];
+const content = menuContent.en;
 ---
 
-<Layout title="Menu | Bến Garden Cafe">
+<Layout title={content.title}>
 	<Navbar activePage="menu" lang="en" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Our Menu</h1>
-			<p class="tagline">"...Every coffee bean is a story of passion..."</p>
-			<p>A selection of handcrafted coffees, fresh teas, juices, and local snacks.</p>
+			<h1>{content.heading}</h1>
+			<p class="tagline">{content.tagline}</p>
+			<p>{content.intro}</p>
 		</header>
 		
 		<div class="menu-grid">
-			{menuData.map(section => (
+			{content.sections.map(section => (
 				<section class="menu-card">
 					<h2>{section.category}</h2>
 					{section.subtitle && <p class="subtitle">{section.subtitle}</p>}

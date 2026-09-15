@@ -3,29 +3,22 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
+import { teamContent } from '../../data/content';
 
-import hangImg from '../../assets/team page/hang.jpeg';
-import huyImg from '../../assets/team page/huy.jpeg';
-import volImg from '../../assets/team page/volunteers.jpeg';
-
-const teamMembers = [
-	{ name: "Hằng", role: "Quản lý chung", bio: "Đam mê các kỹ thuật pha chế cà phê đặc sản Việt Nam.", image: hangImg },
-	{ name: "Huy", role: "Đầu bếp chính", bio: "Phụ trách hoạt động vận hành hàng ngày và các sự kiện cộng đồng.", image: huyImg },
-	{ name: "Tình nguyện viên", role: "Hỗ trợ cộng đồng", bio: "Đội ngũ tình nguyện viên quốc tế và địa phương đầy nhiệt huyết.", image: volImg }
-];
+const content = teamContent.vi;
 ---
 
-<Layout title="Đội ngũ | Bến Garden Cafe">
+<Layout title={content.title}>
 	<Navbar activePage="team" lang="vi" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Đội ngũ của chúng tôi</h1>
-			<p>Những gương mặt thân quen đằng sau tách cà phê, khu vườn và không gian cộng đồng.</p>
+			<h1>{content.heading}</h1>
+			<p>{content.intro}</p>
 		</header>
 
 		<section class="team-grid">
-			{teamMembers.map(member => (
+			{content.members.map(member => (
 				<div class="team-card">
 					<Image 
 						src={member.image} 

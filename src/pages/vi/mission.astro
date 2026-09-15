@@ -2,35 +2,28 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { missionContent } from '../../data/content';
+
+const content = missionContent.vi;
 ---
 
-<Layout title="Sứ mệnh | Bến Garden Cafe">
+<Layout title={content.title}>
 	<Navbar activePage="mission" lang="vi" />
 
 	<main class="content-container">
 		<header class="hero-small">
-			<h1>Sứ mệnh & Tác động xã hội</h1>
-			<p>Tạo dựng cơ hội bền vững và hỗ trợ các sáng kiến cộng đồng tại Việt Nam.</p>
+			<h1>{content.heading}</h1>
+			<p>{content.intro}</p>
 		</header>
 
 		<section class="mission-grid">
-			<div class="card">
-				<div class="icon">🌱</div>
-				<h3>Nguồn cung ứng tử tế</h3>
-				<p>Chúng tôi hợp tác trực tiếp với nông dân trồng cà phê tại Việt Nam để chọn lọc những hạt cà phê chất lượng cao, đảm bảo mức thù lao công bằng và phương pháp canh tác bền vững.</p>
-			</div>
-
-			<div class="card">
-				<div class="icon">🤝</div>
-				<h3>Hỗ trợ cộng đồng</h3>
-				<p>Không gian của chúng tôi là điểm kết nối cho các hoạt động xã hội địa phương, tổ chức các buổi xưởng nghệ thuật, chương trình tình nguyện và giao lưu cộng đồng.</p>
-			</div>
-
-			<div class="card">
-				<div class="icon">🎓</div>
-				<h3>Phát triển kỹ năng</h3>
-				<p>Chúng tôi cung cấp các khóa đào tạo thực tế cho thanh niên và tình nguyện viên về ngành dịch vụ, kỹ năng pha chế và trao đổi ngôn ngữ.</p>
-			</div>
+			{content.cards.map(card => (
+				<div class="card">
+					<div class="icon">{card.icon}</div>
+					<h3>{card.heading}</h3>
+					<p>{card.body}</p>
+				</div>
+			))}
 		</section>
 	</main>
 	<Footer lang="vi" />
