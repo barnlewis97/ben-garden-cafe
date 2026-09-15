@@ -47,6 +47,30 @@ const { activePage = "home", lang = "en" } = Astro.props;
 			</a>
 		</div>
 
+		<details class="mobile-menu">
+			<summary aria-label={lang === 'en' ? 'Open navigation menu' : 'Mở menu điều hướng'}>
+				<span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+				<span class="menu-label">{lang === 'en' ? 'Menu' : 'Menu'}</span>
+			</summary>
+			<div class="mobile-links">
+				<a href={`/${lang}/`} class={activePage === "home" ? "active" : ""}>
+					{lang === 'en' ? 'Home' : 'Trang chủ'}
+				</a>
+				<a href={`/${lang}/menu/`} class={activePage === "menu" ? "active" : ""}>
+					{lang === 'en' ? 'Menu' : 'Thực đơn'}
+				</a>
+				<a href={`/${lang}/mission/`} class={activePage === "mission" ? "active" : ""}>
+					{lang === 'en' ? 'Our Mission' : 'Sứ mệnh'}
+				</a>
+				<a href={`/${lang}/team/`} class={activePage === "team" ? "active" : ""}>
+					{lang === 'en' ? 'Team' : 'Đội ngũ'}
+				</a>
+				<a href={`/${lang}/photos/`} class={activePage === "photos" ? "active" : ""}>
+					{lang === 'en' ? 'Photos' : 'Hình ảnh'}
+				</a>
+			</div>
+		</details>
+
 		<div class="lang-switch">
             <a href="/en/" class={lang === 'en' ? 'lang-active' : ''} aria-label="English">
                 <Image src={ukFlag} alt="UK Flag" width={20} height={14} class="flag-img" />
@@ -71,6 +95,8 @@ const { activePage = "home", lang = "en" } = Astro.props;
 		border-bottom: 2px solid #048212 !important;
 		width: 100% !important;
 		box-sizing: border-box !important;
+		position: relative;
+		z-index: 10;
 	}
 
 	.brand-container {
@@ -124,6 +150,63 @@ const { activePage = "home", lang = "en" } = Astro.props;
 		text-decoration: underline;
 	}
 
+	.mobile-menu {
+		display: none;
+	}
+
+	.mobile-menu summary {
+		list-style: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.55rem 0.75rem;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 6px;
+		color: #ffffff;
+		font-weight: 700;
+	}
+
+	.mobile-menu summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.menu-icon {
+		display: grid;
+		gap: 3px;
+	}
+
+	.menu-icon span {
+		display: block;
+		width: 18px;
+		height: 2px;
+		background: #ffffff;
+	}
+
+	.mobile-links {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		right: 0;
+		display: grid;
+		min-width: 190px;
+		padding: 0.5rem;
+		background: #ffffff;
+		border: 1px solid #048212;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+	}
+
+	.mobile-links a {
+		padding: 0.7rem 0.8rem;
+		color: #024d03;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.mobile-links a.active {
+		background: #e6f4e7;
+		color: #006f18;
+	}
+
 	.lang-switch {
 		display: flex;
 		align-items: center;
@@ -152,5 +235,49 @@ const { activePage = "home", lang = "en" } = Astro.props;
 		color: #e6ccad;
 		font-size: 0.8rem;
 		opacity: 0.6;
+	}
+
+	@media (max-width: 760px) {
+		.navbar {
+			padding: 0.75rem 1rem !important;
+		}
+
+		.brand-container {
+			gap: 0.65rem;
+			min-width: 0;
+		}
+
+		.logo-img {
+			width: 58px;
+			height: 58px;
+		}
+
+		.brand-title {
+			font-size: 1.15rem;
+		}
+
+		.brand-tagline {
+			display: none;
+		}
+
+		.nav-right {
+			gap: 0.6rem;
+		}
+
+		.nav-links {
+			display: none;
+		}
+
+		.mobile-menu {
+			display: block;
+		}
+
+		.lang-switch {
+			padding: 0.3rem 0.5rem;
+		}
+
+		.lang-text {
+			display: none;
+		}
 	}
 </style>
