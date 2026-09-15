@@ -1,7 +1,8 @@
 ---
+import { siteInfo } from '../data/content';
+
 const { lang = "en" } = Astro.props;
 
-const addressText = "Cầu Giăng, Túy Loan, Hòa Vang, Đà Nẵng, Vietnam";
 const googleMapsUrl = "https://share.google/HxeYt0gO3Jz7Z0I7a";
 
 // Official Google Maps Embed URL for Bến Garden
@@ -13,8 +14,7 @@ const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!
 		<!-- Contact Info & Hyperlink -->
 		<div class="footer-section">
 			<h4>{lang === 'en' ? 'Contact Us' : 'Liên hệ'}</h4>
-			<p>📧 Email: <a href="mailto:info@bengardencafe.com">info@bengardencafe.com</a></p>
-			<p>📞 Phone: <a href="tel:+84123456789">+84 123 456 789</a></p>
+			<p>📞 {lang === 'en' ? 'Phone:' : 'Điện thoại:'} <a href={`tel:${siteInfo.phone.replaceAll(' ', '')}`}>{siteInfo.phone}</a></p>
 			<p>
 				📍 {lang === 'en' ? 'Location:' : 'Địa chỉ:'}<br />
 				<a 
@@ -23,7 +23,7 @@ const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!
 					rel="noopener noreferrer"
 					class="location-link"
 				>
-					{addressText} ↗
+					{siteInfo.address} ↗
 				</a>
 			</p>
 		</div>
@@ -32,9 +32,8 @@ const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!
 		<div class="footer-section">
 			<h4>{lang === 'en' ? 'Follow Us' : 'Theo dõi chúng tôi'}</h4>
 			<div class="social-links">
-				<a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-				<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-				<a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">Tripadvisor</a>
+				<a href={siteInfo.facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>
+				<a href={siteInfo.workawayUrl} target="_blank" rel="noopener noreferrer">Workaway</a>
 			</div>
 		</div>
 

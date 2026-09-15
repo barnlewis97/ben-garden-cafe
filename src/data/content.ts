@@ -6,6 +6,13 @@ export type Language = 'en' | 'vi';
 
 type Localized<T> = Record<Language, T>;
 
+export const siteInfo = {
+	facebookUrl: 'https://www.facebook.com/bentuyloan/',
+	workawayUrl: 'https://www.workaway.info/en/host/272595511442',
+	phone: '+84 34 385 4567',
+	address: 'Bến Garden, KV Cầu Giăng, Túy Loan Đông 2, Hòa Phong, Hòa Vang, Đà Nẵng, Vietnam'
+};
+
 export const homeContent: Localized<{
 	title: string;
 	heading: string;
@@ -15,21 +22,21 @@ export const homeContent: Localized<{
 }> = {
 	en: {
 		title: 'Bến Garden Cafe | Home',
-		heading: 'Welcome to Bến Garden',
+		heading: 'A peaceful garden in Da Nang',
 		storyHeading: 'Our Story',
 		storyParagraphs: [
-			'Founded with a vision to create a peaceful sanctuary for locals and visitors alike, our cafe brings together craft coffee, warm hospitality, and a commitment to giving back.',
-			'Whether you are stopping by for your morning brew, learning about our community programs, or relaxing in our garden space, we are delighted to welcome you.'
+			'Bến Garden is a small riverside garden and coffee space in the peaceful countryside of Da Nang, created by Hang and Huy as a place to live close to nature and build a meaningful community.',
+			'We grow vegetables, care for animals, share food, and welcome local people, children, and international visitors into simple everyday experiences shaped by kindness and cultural exchange.'
 		],
 		imageAlt: 'Bến Garden Cafe exterior and garden'
 	},
 	vi: {
 		title: 'Bến Garden Cafe | Trang chủ',
-		heading: 'Chào mừng đến với Bến Garden',
+		heading: 'Khu vườn bình yên ở Đà Nẵng',
 		storyHeading: 'Câu chuyện của chúng tôi',
 		storyParagraphs: [
-			'Được thành lập với mong muốn tạo ra một không gian yên bình cho cộng đồng địa phương và du khách, quán cà phê của chúng tôi mang đến trải nghiệm cà phê thủ công, sự hiếu khách ấm áp và cam kết đóng góp cho xã hội.',
-			'Dù bạn ghé thăm để thưởng thức ly cà phê buổi sáng, tìm hiểu về các chương trình cộng đồng, hay thư giãn trong không gian sân vườn, chúng tôi luôn hân hạnh được đón tiếp bạn.'
+			'Bến Garden là một khu vườn ven sông và không gian cà phê nhỏ giữa vùng quê yên bình của Đà Nẵng. Hang và Huy tạo dựng nơi đây với mong muốn sống gần thiên nhiên và xây dựng một cộng đồng ý nghĩa.',
+			'Chúng tôi trồng rau, chăm sóc vật nuôi, cùng nhau dùng bữa và chào đón người dân địa phương, trẻ em cùng du khách quốc tế đến chia sẻ những trải nghiệm đời thường và giao lưu văn hóa.'
 		],
 		imageAlt: 'Bến Garden Cafe'
 	}
@@ -119,17 +126,17 @@ export const missionContent: Localized<{
 	cards: Array<{ icon: string; heading: string; body: string }>;
 }> = {
 	en: {
-		title: 'Our Mission | Bến Garden Cafe', heading: 'Our Mission & Impact', intro: 'Creating sustainable opportunity and supporting local initiatives in Vietnam.', cards: [
-			{ icon: '🌱', heading: 'Ethical Sourcing', body: 'We work directly with local Vietnamese coffee farmers to source high-quality beans, ensuring fair compensation and sustainable farming methods.' },
-			{ icon: '🤝', heading: 'Community Support', body: 'Our space acts as a hub for local social initiatives, offering educational workshops, volunteer programs, and community gatherings.' },
-			{ icon: '🎓', heading: 'Skill Development', body: 'We provide hands-on training for young adults and volunteers in hospitality, barista skills, and English language exchange.' }
+		title: 'Our Mission | Bến Garden Cafe', heading: 'Our Mission & Impact', intro: 'A peaceful community garden where children, local people, and international volunteers learn through everyday life.', cards: [
+			{ icon: '🌱', heading: 'Garden Life', body: 'Grow vegetables, care for animals, share meals, and enjoy a slower rhythm close to nature in the countryside outside Da Nang.' },
+			{ icon: '🤝', heading: 'Community & Culture', body: 'We bring local people and international visitors together through food, stories, workshops, games, and genuine cultural exchange.' },
+			{ icon: '🎓', heading: 'Natural English Practice', body: 'Patient volunteers help local children practice English through conversation, play, creative activities, and simple experiences from daily life.' }
 		]
 	},
 	vi: {
-		title: 'Sứ mệnh | Bến Garden Cafe', heading: 'Sứ mệnh & Tác động xã hội', intro: 'Tạo dựng cơ hội bền vững và hỗ trợ các sáng kiến cộng đồng tại Việt Nam.', cards: [
-			{ icon: '🌱', heading: 'Nguồn cung ứng tử tế', body: 'Chúng tôi hợp tác trực tiếp với nông dân trồng cà phê tại Việt Nam để chọn lọc những hạt cà phê chất lượng cao, đảm bảo mức thù lao công bằng và phương pháp canh tác bền vững.' },
-			{ icon: '🤝', heading: 'Hỗ trợ cộng đồng', body: 'Không gian của chúng tôi là điểm kết nối cho các hoạt động xã hội địa phương, tổ chức các buổi xưởng nghệ thuật, chương trình tình nguyện và giao lưu cộng đồng.' },
-			{ icon: '🎓', heading: 'Phát triển kỹ năng', body: 'Chúng tôi cung cấp các khóa đào tạo thực tế cho thanh niên và tình nguyện viên về ngành dịch vụ, kỹ năng pha chế và trao đổi ngôn ngữ.' }
+		title: 'Sứ mệnh | Bến Garden Cafe', heading: 'Sứ mệnh & Tác động xã hội', intro: 'Một khu vườn cộng đồng yên bình nơi trẻ em, người dân địa phương và tình nguyện viên quốc tế cùng học hỏi qua cuộc sống thường ngày.', cards: [
+			{ icon: '🌱', heading: 'Cuộc sống trong khu vườn', body: 'Trồng rau, chăm sóc vật nuôi, cùng dùng bữa và tận hưởng nhịp sống chậm gần gũi với thiên nhiên ở vùng quê Đà Nẵng.' },
+			{ icon: '🤝', heading: 'Cộng đồng & văn hóa', body: 'Chúng tôi kết nối người dân địa phương với du khách quốc tế qua ẩm thực, câu chuyện, các buổi workshop, trò chơi và giao lưu chân thành.' },
+			{ icon: '🎓', heading: 'Thực hành tiếng Anh tự nhiên', body: 'Các tình nguyện viên kiên nhẫn đồng hành cùng trẻ em luyện tiếng Anh qua trò chuyện, vui chơi, hoạt động sáng tạo và những trải nghiệm đời thường.' }
 		]
 	}
 };
