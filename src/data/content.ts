@@ -163,6 +163,63 @@ export const teamContent: Localized<{
 	}
 };
 
+export const practiceContent: Localized<{
+	title: string;
+	heading: string;
+	intro: string;
+	quickFacts: Array<{ label: string; value: string }>;
+	activitiesHeading: string;
+	activities: Array<{ icon: string; heading: string; body: string }>;
+	schoolHeading: string;
+	schoolBody: string;
+	individualHeading: string;
+	individualBody: string;
+	contactLabel: string;
+}> = {
+	en: {
+		title: 'English Practice & Workshops | Bến Garden Cafe',
+		heading: 'English grows through play',
+		intro: 'Every morning, Bến Garden becomes a relaxed place for children to practice English with international volunteers through real conversations, creative activities, and shared curiosity.',
+		quickFacts: [
+			{ label: 'When', value: 'Most mornings, 8:00 am to 12:00 pm' },
+			{ label: 'Who', value: 'Local children, school groups, and visiting families' },
+			{ label: 'Where', value: 'Bến Garden, Cầu Giăng, Da Nang' }
+		],
+		activitiesHeading: 'What happens in a morning',
+		activities: [
+			{ icon: '🎲', heading: 'Games & conversation', body: 'Children build confidence through simple games, questions, stories, and everyday English that feels natural rather than like a lesson.' },
+			{ icon: '🎨', heading: 'Art & making', body: 'Drawing, crafts, and hands-on projects give children a reason to use new words while making something they can take pride in.' },
+			{ icon: '🎵', heading: 'Music & movement', body: 'Songs, rhythm, and playful activities help language stick while volunteers and children enjoy the morning together.' }
+		],
+		schoolHeading: 'Workshops for schools',
+		schoolBody: 'Schools can arrange a friendly morning visit built around English games, art, music, garden activities, and cultural exchange. We can shape the pace and activities around the age of the group.',
+		individualHeading: 'Individual sign-ups',
+		individualBody: 'Families can get in touch to ask about a child joining a suitable morning session. Places and activities depend on the day, so contact us before visiting.',
+		contactLabel: 'Contact Bến Garden to arrange a visit'
+	},
+	vi: {
+		title: 'Tiếng Anh & Workshop | Bến Garden Cafe',
+		heading: 'Học tiếng Anh qua vui chơi',
+		intro: 'Mỗi buổi sáng, Bến Garden trở thành một không gian nhẹ nhàng để trẻ em luyện tiếng Anh cùng các tình nguyện viên quốc tế qua trò chuyện, hoạt động sáng tạo và sự tò mò chung.',
+		quickFacts: [
+			{ label: 'Thời gian', value: 'Hầu hết các buổi sáng, từ 8:00 đến 12:00' },
+			{ label: 'Dành cho', value: 'Trẻ em địa phương, nhóm học sinh và gia đình' },
+			{ label: 'Địa điểm', value: 'Bến Garden, Cầu Giăng, Đà Nẵng' }
+		],
+		activitiesHeading: 'Một buổi sáng có gì?',
+		activities: [
+			{ icon: '🎲', heading: 'Trò chơi & trò chuyện', body: 'Trẻ em tự tin hơn qua các trò chơi đơn giản, câu hỏi, câu chuyện và tiếng Anh đời thường thay vì một tiết học cứng nhắc.' },
+			{ icon: '🎨', heading: 'Nghệ thuật & sáng tạo', body: 'Vẽ, làm thủ công và các hoạt động thực hành giúp trẻ sử dụng từ mới trong khi tạo ra những sản phẩm đáng tự hào.' },
+			{ icon: '🎵', heading: 'Âm nhạc & vận động', body: 'Bài hát, nhịp điệu và các hoạt động vui chơi giúp việc học ngôn ngữ trở nên tự nhiên và đáng nhớ.' }
+		],
+		schoolHeading: 'Workshop dành cho trường học',
+		schoolBody: 'Các trường có thể đăng ký một buổi tham quan thân thiện với trò chơi tiếng Anh, nghệ thuật, âm nhạc, hoạt động trong vườn và giao lưu văn hóa. Chúng tôi có thể điều chỉnh hoạt động theo độ tuổi của nhóm.',
+		individualHeading: 'Đăng ký cá nhân',
+		individualBody: 'Gia đình có thể liên hệ để hỏi về một buổi sinh hoạt phù hợp cho trẻ. Số lượng và hoạt động tùy từng ngày, vì vậy hãy liên hệ trước khi đến.',
+		contactLabel: 'Liên hệ Bến Garden để sắp xếp chuyến thăm'
+	}
+};
+
 export const photosContent: Localized<{
 	title: string;
 	heading: string;

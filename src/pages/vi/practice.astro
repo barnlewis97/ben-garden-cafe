@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { practiceContent, siteInfo } from '../../data/content';
+
+const content = practiceContent.vi;
+---
+
+<Layout title={content.title}>
+	<Navbar activePage="practice" lang="vi" />
+
+	<main class="content-container">
+		<header class="practice-hero">
+			<p class="eyebrow">Buổi sáng cộng đồng tại Bến Garden</p>
+			<h1>{content.heading}</h1>
+			<p class="intro">{content.intro}</p>
+			<div class="quick-facts">
+				{content.quickFacts.map(fact => <div><strong>{fact.label}</strong><span>{fact.value}</span></div>)}
+			</div>
+		</header>
+
+		<section class="activities-section">
+			<h2>{content.activitiesHeading}</h2>
+			<div class="activity-grid">
+				{content.activities.map(activity => (
+					<article class="activity-card">
+						<span class="activity-icon" aria-hidden="true">{activity.icon}</span>
+						<h3>{activity.heading}</h3>
+						<p>{activity.body}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="signup-grid">
+			<article class="signup-card school-card">
+				<p class="card-kicker">Dành cho nhóm</p>
+				<h2>{content.schoolHeading}</h2>
+				<p>{content.schoolBody}</p>
+			</article>
+			<article class="signup-card individual-card">
+				<p class="card-kicker">Dành cho gia đình</p>
+				<h2>{content.individualHeading}</h2>
+				<p>{content.individualBody}</p>
+			</article>
+		</section>
+
+		<section class="contact-strip">
+			<div><h2>{content.contactLabel}</h2><p>{siteInfo.phone} · {siteInfo.address}</p></div>
+			<a class="contact-button" href={`tel:${siteInfo.phone.replaceAll(' ', '')}`}>Gọi Bến Garden</a>
+		</section>
+	</main>
+	<Footer lang="vi" />
+</Layout>
+
+<style>
+	.content-container { max-width: 1000px; margin: 0 auto; padding: 2.5rem 1rem; }
+	.practice-hero { max-width: 780px; margin: 0 auto 3.5rem; text-align: center; }
+	.eyebrow, .card-kicker { margin: 0 0 0.6rem; color: #d26a32; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+	.practice-hero h1 { margin-bottom: 1rem; font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 1.05; }
+	.intro { max-width: 680px; margin: 0 auto; font-size: 1.12rem; color: #38503d; }
+	.quick-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 2rem; text-align: left; }
+	.quick-facts div { padding: 1rem; border-left: 3px solid #e4a34d; background: rgba(255, 255, 255, 0.75); }
+	.quick-facts strong, .quick-facts span { display: block; } .quick-facts strong { color: #176139; font-size: 0.8rem; text-transform: uppercase; } .quick-facts span { margin-top: 0.25rem; color: #4b5563; font-size: 0.9rem; }
+	.activities-section h2 { margin-bottom: 1.25rem; text-align: center; }
+	.activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+	.activity-card, .signup-card { padding: 1.5rem; border: 1px solid #dce8d5; border-radius: 8px; background: rgba(255, 255, 255, 0.88); box-shadow: 0 8px 24px rgba(46, 87, 49, 0.08); }
+	.activity-icon { font-size: 2rem; } .activity-card h3 { margin: 0.65rem 0 0.4rem; color: #176139; } .activity-card p, .signup-card p { color: #4b5563; }
+	.signup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 3rem; }
+	.school-card { border-top: 5px solid #e4a34d; } .individual-card { border-top: 5px solid #5a9b63; } .signup-card h2 { margin-bottom: 0.5rem; }
+	.contact-strip { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding: 1.25rem 1.5rem; border-radius: 8px; background: #176139; color: #fff; }
+	.contact-strip h2 { margin: 0; color: #fff; font-size: 1.25rem; } .contact-strip p { margin: 0.3rem 0 0; color: #e2f0df; font-size: 0.9rem; } .contact-button { flex-shrink: 0; padding: 0.7rem 1rem; border-radius: 5px; background: #f5c86d; color: #173f27; font-weight: 800; text-decoration: none; }
+	@media (max-width: 680px) { .quick-facts, .activity-grid, .signup-grid { grid-template-columns: 1fr; } .contact-strip { align-items: flex-start; flex-direction: column; } }
+</style>

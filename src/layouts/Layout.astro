@@ -1,4 +1,6 @@
 ---
+import TropicalBackdrop from '../components/TropicalBackdrop.astro';
+
 const { title = "Bến Garden Cafe" } = Astro.props;
 
 ---
@@ -12,6 +14,7 @@ const { title = "Bến Garden Cafe" } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<TropicalBackdrop />
 		<slot />
 	</body>
 </html>
@@ -34,6 +37,11 @@ const { title = "Bến Garden Cafe" } = Astro.props;
 		color: var(--text-color);
 		font-family: var(--font-main);
 		line-height: 1.6;
+	}
+
+	body > :not(.tropical-backdrop) {
+		position: relative;
+		z-index: 1;
 	}
 
 	/* 3. Global Heading Colors & Fonts */

@@ -39,6 +39,9 @@ const { activePage = "home", lang = "en" } = Astro.props;
 			<a href={`/${lang}/mission/`} class={activePage === "mission" ? "active" : ""}>
 				{lang === 'en' ? 'Our Mission' : 'Sứ mệnh'}
 			</a>
+			<a href={`/${lang}/practice/`} class={activePage === "practice" ? "active" : ""}>
+				{lang === 'en' ? 'English Practice' : 'Tiếng Anh'}
+			</a>
 			<a href={`/${lang}/team/`} class={activePage === "team" ? "active" : ""}>
 				{lang === 'en' ? 'Team' : 'Đội ngũ'}
 			</a>
@@ -61,6 +64,9 @@ const { activePage = "home", lang = "en" } = Astro.props;
 				</a>
 				<a href={`/${lang}/mission/`} class={activePage === "mission" ? "active" : ""}>
 					{lang === 'en' ? 'Our Mission' : 'Sứ mệnh'}
+				</a>
+				<a href={`/${lang}/practice/`} class={activePage === "practice" ? "active" : ""}>
+					{lang === 'en' ? 'English Practice' : 'Tiếng Anh'}
 				</a>
 				<a href={`/${lang}/team/`} class={activePage === "team" ? "active" : ""}>
 					{lang === 'en' ? 'Team' : 'Đội ngũ'}
