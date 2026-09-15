@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
-import { photosContent } from '../../data/content';
+import { photosContent, siteInfo } from '../../data/content';
 
 const content = photosContent.en;
 ---
@@ -17,8 +17,17 @@ const content = photosContent.en;
 		</header>
 
 		<section class="gallery-grid">
-			{content.items.map(item => <div class="gallery-item">📷 {item}</div>)}
+			{content.items.map(item => (
+				<figure class="gallery-item">
+					<img src={item.src} alt={item.alt} loading="lazy" />
+					<figcaption>{item.alt}</figcaption>
+				</figure>
+			))}
 		</section>
+
+		<p class="attribution">
+			Photos from <a href={siteInfo.workawayUrl} target="_blank" rel="noopener noreferrer">Workaway</a> and <a href={siteInfo.facebookUrl} target="_blank" rel="noopener noreferrer">BẾN Garden on Facebook</a>.
+		</p>
 	</main>
 	<Footer lang="en" />
 </Layout>
@@ -65,14 +74,27 @@ const content = photosContent.en;
 		gap: 1.5rem;
 	}
 	.gallery-item {
-		background-color: #f0f0f0;
-		border: 2px dashed #ccc;
+		margin: 0;
+		background-color: #ffffff;
+		border: 1px solid #e2e8f0;
 		border-radius: 8px;
-		height: 200px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #666;
-		font-size: 0.95rem;
+		overflow: hidden;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+	}
+	.gallery-item img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+	}
+	.gallery-item figcaption {
+		padding: 0.75rem 0.9rem;
+		color: #475569;
+		font-size: 0.9rem;
+	}
+	.attribution {
+		margin-top: 1.5rem;
+		color: #64748b;
+		font-size: 0.85rem;
 	}
 </style>

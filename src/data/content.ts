@@ -167,12 +167,24 @@ export const photosContent: Localized<{
 	title: string;
 	heading: string;
 	intro: string;
-	items: string[];
+	items: Array<{ src: string; alt: string }>;
 }> = {
 	en: {
-		title: 'Photos | Bến Garden Cafe', heading: 'Gallery', intro: 'A glimpse into our space, coffee, and daily life in Vietnam.', items: ['Garden Seating Area', 'Freshly Brewed Coffee', 'Community Workshop', 'Cafe Exterior & Entrance', 'Team & Volunteers', 'Speciality Drinks Menu']
+		title: 'Photos | Bến Garden Cafe', heading: 'Gallery', intro: 'A glimpse into the garden, community, and everyday life at Bến Garden.', items: [
+			{ src: '/gallery/community-table.jpg', alt: 'Children and adults sharing food around a garden table' },
+			{ src: '/gallery/garden-team.jpg', alt: 'Volunteers celebrating together in the garden' },
+			{ src: '/gallery/garden-community.jpg', alt: 'The Bến Garden community gathered under a tree' },
+			{ src: '/gallery/children-water-play.jpg', alt: 'Children playing outdoors in the garden' },
+			{ src: '/gallery/facebook-profile.jpg', alt: 'BẾN Garden social page profile image' }
+		]
 	},
 	vi: {
-		title: 'Hình ảnh | Bến Garden Cafe', heading: 'Thư viện ảnh', intro: 'Góc nhìn về không gian, cà phê và cuộc sống thường nhật tại Bến Garden.', items: ['Góc sân vườn', 'Cà phê pha tươi', 'Buổi xưởng cộng đồng', 'Mặt tiền & Lối vào', 'Đội ngũ & Tình nguyện viên', 'Menu đồ uống đặc sản']
+		title: 'Hình ảnh | Bến Garden Cafe', heading: 'Thư viện ảnh', intro: 'Một vài hình ảnh về khu vườn, cộng đồng và cuộc sống thường ngày tại Bến Garden.', items: [
+			{ src: '/gallery/community-table.jpg', alt: 'Trẻ em và người lớn cùng dùng bữa quanh bàn trong khu vườn' },
+			{ src: '/gallery/garden-team.jpg', alt: 'Các tình nguyện viên cùng vui vẻ trong khu vườn' },
+			{ src: '/gallery/garden-community.jpg', alt: 'Cộng đồng Bến Garden tập trung dưới tán cây' },
+			{ src: '/gallery/children-water-play.jpg', alt: 'Trẻ em vui chơi ngoài trời trong khu vườn' },
+			{ src: '/gallery/facebook-profile.jpg', alt: 'Ảnh đại diện trang mạng xã hội BẾN Garden' }
+		]
 	}
 };
